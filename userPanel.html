@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>userPanel</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- navbar -->
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        
+            <div class="container-fluid">
+                
+              <a class="navbar-brand" href="#">User</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/index.html">login</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                   
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+      <!-- carousal -->
+
+      <div id="carousel" class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/library.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/library2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/library3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <h2>Available Books</h2>
+     
+      
+      <!-- table -->
+      <script>
+        var tableHTML = document.getElementById("101").innerHTML;
+    window.localStorage["sharedTable"] = tableHTML;
+        // Function to add a new book row to the table
+        function addBook() {
+          const tableBody = document.querySelector("tbody");
+    
+          // Create a new row
+          const newRow = document.createElement("tr");
+    
+          // Create cells for the new row
+          const bookIdCell = document.createElement("td");
+          const titleCell = document.createElement("td");
+          const authorCell = document.createElement("td");
+          const publicationDateCell = document.createElement("td");
+          const actionCell = document.createElement("td");
+    
+          // Assign values to the new row cells
+          bookIdCell.textContent = ""; // Empty for new book
+          titleCell.innerHTML = '<input type="text">';
+          authorCell.innerHTML = '<input type="text">';
+          publicationDateCell.innerHTML = '<input type="text">';
+          actionCell.innerHTML = '<button onclick="removeBook(this)">Remove</button>';
+    
+          // Append cells to the new row
+          newRow.appendChild(bookIdCell);
+          newRow.appendChild(titleCell);
+          newRow.appendChild(authorCell);
+          newRow.appendChild(publicationDateCell);
+          newRow.appendChild(actionCell);
+    
+          // Append the new row to the table
+          tableBody.appendChild(newRow);
+        } 
+        var tableHTML = document.getElementById("101").innerHTML;
+    window.localStorage["sharedTable"] = tableHTML;
+        // Function to add a new book row to the table
+        function addBook() {
+          const tableBody = document.querySelector("tbody");
+    
+          // Create a new row
+          const newRow = document.createElement("tr");
+    
+          // Create cells for the new row
+          const bookIdCell = document.createElement("td");
+          const titleCell = document.createElement("td");
+          const authorCell = document.createElement("td");
+          const publicationDateCell = document.createElement("td");
+          const actionCell = document.createElement("td");
+    
+          // Assign values to the new row cells
+          bookIdCell.textContent = ""; // Empty for new book
+          titleCell.innerHTML = '<input type="text">';
+          authorCell.innerHTML = '<input type="text">';
+          publicationDateCell.innerHTML = '<input type="text">';
+          actionCell.innerHTML = '<button onclick="removeBook(this)">Remove</button>';
+    
+          // Append cells to the new row
+          newRow.appendChild(bookIdCell);
+          newRow.appendChild(titleCell);
+          newRow.appendChild(authorCell);
+          newRow.appendChild(publicationDateCell);
+          newRow.appendChild(actionCell);
+    
+          // Append the new row to the table
+          tableBody.appendChild(newRow);
+        }
+    
+        // Function to remove a book row from the table
+        function removeBook(button) {
+          const row = button.parentNode.parentNode;
+          row.parentNode.removeChild(row);
+        }
+      </script>
+    
+    
+    <body>
+      <h2>Book List</h2>
+    
+      <table class="tb" id="101">
+        <thead>
+          <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publication Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>The Great Gatsby</td>
+            <td>F. Scott Fitzgerald</td>
+            <td>1925</td>
+            <td><button onclick="removeBook(this)">Remove</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>To Kill a Mockingbird</td>
+            <td>Harper Lee</td>
+            <td>1960</td>
+            <td><button onclick="removeBook(this)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <button onclick="addBook()">Add Book</button>
+         
+</body>
+</html>
